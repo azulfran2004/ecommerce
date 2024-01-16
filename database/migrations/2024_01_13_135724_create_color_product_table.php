@@ -17,7 +17,6 @@ class CreateColorProductTable extends Migration
             $table->id();
             $table->foreignId('color_id')->references('id')->on('colors');
             $table->foreignId('product_id')->references('id')->on('products');
-
             $table->integer('quantity');
 
             $table->timestamps();
