@@ -1141,9 +1141,6 @@ select {
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
-.col-span-4 {
-  grid-column: span 4 / span 4;
-}
 .col-span-6 {
   grid-column: span 6 / span 6;
 }
@@ -1207,6 +1204,9 @@ select {
 .ml-6 {
   margin-left: 1.5rem;
 }
+.mr-1 {
+  margin-right: 0.25rem;
+}
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -1236,9 +1236,6 @@ select {
 }
 .mt-8 {
   margin-top: 2rem;
-}
-.mr-1 {
-  margin-right: 0.25rem;
 }
 .mt-auto {
   margin-top: auto;
@@ -1342,6 +1339,9 @@ select {
 .w-5 {
   width: 1.25rem;
 }
+.w-56 {
+  width: 14rem;
+}
 .w-6 {
   width: 1.5rem;
 }
@@ -1359,9 +1359,6 @@ select {
 }
 .w-full {
   width: 100%;
-}
-.w-56 {
-  width: 14rem;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1456,9 +1453,6 @@ select {
 }
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -2495,12 +2489,12 @@ select {
     grid-column: span 4 / span 4;
   }
 
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .lg\:px-8 {

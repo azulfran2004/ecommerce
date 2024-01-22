@@ -3,6 +3,7 @@
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +31,4 @@ Route::middleware([
     })->name('dashboard');
 });
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+Route::get('products/{product}', [ProductsController::class, 'show'])->name('products.show');
