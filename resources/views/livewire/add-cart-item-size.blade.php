@@ -8,7 +8,15 @@
             @endforeach
         </select>
     </div>
-    <div class="mt-2">
+    <p class="text-gray-700 my-4">
+        <span class="font-semibold text-lg">Stock disponible:</span> {{ $product->stock }}
+        @if($quantity)
+        {{ $quantity }}
+        @else
+        {{ $product->stock }}
+        @endif
+    </p>
+    <div class="flex mt-2">
         <p class="text-xl text-gray-700">Color:</p>
         <select class="form-control w-full">
             <option value="" selected disabled>Seleccione un color</option>
@@ -17,7 +25,7 @@
             @endforeach
         </select>
         <div class="flex-1">
-            <x-button x-bind:disabled="!$wire.quantity" wire:click="addItem" wire:loading.attr="disabled" wire:target="addItem" class="w-full" color="orange">
+            <x-button x-bind:disabled="$wire.qty > $wire.quantity" wire:click="addItem" wire:loading.attr="disabled" wire:target="addItem" class="w-full" color="orange">
                 Agregar al carrito de compras
             </x-button>
         </div>
