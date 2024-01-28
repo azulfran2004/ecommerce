@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 use Gloudemans\Shoppingcart\Facades\Cart;
-
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +39,4 @@ Route::get('products/{product}', [ProductsController::class, 'show'])->name('pro
 Route::get('/deletecart', function () {
     Cart::destroy();
 });
+Route::get('search', SearchController::class)->name('search');
