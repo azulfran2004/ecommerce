@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\SearchController;
+use App\Http\Livewire\ShoppingCart;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,4 @@ Route::get('/deletecart', function () {
     Cart::destroy();
 });
 Route::get('search', SearchController::class)->name('search');
+Route::get('shopping-cart', ShoppingCart::class)->name('shopping-cart');
