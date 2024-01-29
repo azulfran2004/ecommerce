@@ -53,7 +53,7 @@
         <button wire:click="destroy" class="ml-4 text-red-500 hover:underline cursor-pointer">
             Borrar carrito
         </button>
-         @else
+        @else
         <div class="flex flex-col items-center">
             <x-cart />
             <p class="text-lg text-gray-700 mt-4">TU CARRITO DE COMPRAS ESTÁ VACÍO</p>
@@ -71,8 +71,7 @@
                 {{ Cart::subtotal() }} &euro;
             </div>
             <div>
-                <x-button-link>
-                    Continuar
+                <x-button-link href="{{ route('orders.create') }}"> Continuar
                 </x-button-link>
             </div>
         </div>
