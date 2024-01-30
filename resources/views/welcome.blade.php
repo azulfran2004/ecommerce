@@ -6,9 +6,9 @@
                 <h1 class="text-lg uppercase font-semibold text-gray-700">
                     {{ $category->name }}
                 </h1>
-                <a href="{{ route('categories.show', $category) }}" class="text-orange-500 hover:text-orange-400 hover:underline ml-
-2 font-semibold">Ver más</a>
             </div>
+            <a href="{{ route('categories.show', $category) }}" class="text-orange-500 hover:text-orange-400 hover:underline ml-
+2 font-semibold">Ver más</a>
             @livewire('category-products', ['category' => $category])
         </section>
         @endforeach
