@@ -1,4 +1,3 @@
-<x-app-layout>
     <div class="grid grid-cols-5 gap-6 container-menu py-8">
         <div class="col-span-3">
             <div class="container-menu py-8">
@@ -117,4 +116,3 @@
         }).render('#paypal-button-container');
     </script>
     @endpush
-</x-app-layout>
