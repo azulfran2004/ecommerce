@@ -65,7 +65,8 @@ class CreateProduct extends Component
         if ($this->subcategory_id && !$this->subcategory->color && !$this->subcategory->size) {
             $product->quantity = $this->quantity;
         }
-        $product->save();
         $this->validate();
+        $product->save();
+        return redirect()->route('admin.products.edit', $product);
     }
 }
