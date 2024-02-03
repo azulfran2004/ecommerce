@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/glider-js/glider.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/flex-slider/flexslider.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('vendor/sweetalert2/dist/sweetalert2.css') }}">
     @livewireStyles
 
     <!-- Scripts -->
@@ -24,8 +24,8 @@
     <script src="{{ asset('vendor/glider-js/glider.min.js') }}"></script>
     <script src="{{ asset('vendor/flex-slider/node_modules/jquery/dist/jquery.js') }}"></script>
     <script src="{{ asset('vendor/flex-slider/jquery.flexslider-min.js') }}"></script>
-    <script src="{{ asset('vendor/ckeditor5/build/ckeditor.js') }}"></script>
-
+    <script src="{{ asset('vendor/ckeditor/build/ckeditor.js') }}"></script>
+    <script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.js') }}"></script>
 </head>
 
 <body class="font-sans antialiased">

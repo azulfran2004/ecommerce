@@ -25,6 +25,7 @@
     <script src="{{ asset('vendor/flex-slider/node_modules/jquery/dist/jquery.js') }}"></script>
     <script src="{{ asset('vendor/flex-slider/jquery.flexslider-min.js') }}"></script>
 
+
 </head>
 
 <body class="font-sans antialiased">
