@@ -10,6 +10,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Livewire\ShoppingCart;
 use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\PaymentOrder;
+use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,3 +61,4 @@ Route::get('prueba', function () {
     }
     return "Completado con éxito";
 });
+Route::post('product/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');

@@ -10,6 +10,8 @@ use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use App\Listeners\MergeTheCart;
 use App\Listeners\MergeTheCartLogout;
+use App\Models\Product;
+use App\Observers\ProductObserver;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -37,6 +39,6 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Product::observe(ProductObserver::class);
     }
 }
