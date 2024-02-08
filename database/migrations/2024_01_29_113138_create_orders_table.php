@@ -33,6 +33,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('district_id')->nullable()->references('id')->on('districts');
             $table->string('address')->nullable();
             $table->string('reference')->nullable();
+            $table->json('envio')->nullable();
             $table->timestamps();
         });
     }
