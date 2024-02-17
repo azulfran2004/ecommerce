@@ -16,7 +16,7 @@
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <x-table-responsive>
                             <div class="px-6 py-4">
-                                <x-jet-input class="w-full" wire:model="search" type="text" placeholder="Introduzca el nombre del producto a buscar" />
+                                <x-jet-input dusk="buscador" class="w-full" wire:model="search" type="text" placeholder="Introduzca el nombre del producto a buscar" />
                             </div>
                             @if($products->count())
                             <table class="min-w-full divide-y divide-gray-200">
@@ -69,7 +69,7 @@
                                             {{ $product->price }} &euro;
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="{{ route('admin.products.edit', $product) }}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                            <a dusk="editar" href="{{ route('admin.products.edit', $product) }}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -172,7 +172,7 @@
             </div>
             <div class="mb-4">
                 <x-jet-label value="Nombre" />
-                <x-jet-input type="text" class="w-full" wire:model="product.name" placeholder="Ingrese el nombre del producto" />
+                <x-jet-input dusk="nombre" type="text" class="w-full" wire:model="product.name" placeholder="Ingrese el nombre del producto" />
                 <x-jet-input-error for="product.name" />
             </div>
             <div class="mb-4">
@@ -224,7 +224,7 @@ console.error( error );} );" x-ref="miEditor">
                 <x-jet-action-message class="mr-3" on="saved">
                     Actualizado
                 </x-jet-action-message>
-                <x-jet-button wire:loading.attr="disabled" wire:target="save" wire:click="save">
+                <x-jet-button dusk="actualizar" wire:loading.attr="disabled" wire:target="save" wire:click="save">
                     Actualizar producto
                 </x-jet-button>
             </div>

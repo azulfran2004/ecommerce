@@ -1,9 +1,9 @@
 <div>
     <p class="text-xl text-gray-700">Color:</p>
-    <select wire:model="color_id" class="form-control w-full">
+    <select dusk="selectColor" wire:model="color_id" class="form-control w-full">
         <option value="" selected disabled>Seleccionar un color</option>
         @foreach ($colors as $color)
-        <option value="{{$color->id}}">{{ __(ucfirst($color->name)) }}</option>
+        <option dusk="selectColor-id-{{ $color->id }}" value="{{$color->id}}">{{ __(ucfirst($color->name)) }}</option>
         @endforeach
     </select>
     <p class="text-gray-700 my-4">
@@ -26,7 +26,7 @@
                 </x-jet-secondary-button>
             </div>
             <div class="flex-1">
-                <x-button x-bind:disabled="$wire.qty > $wire.quantity" wire:click="addItem" wire:loading.attr="disabled" wire:target="addItem" class="w-full" color="orange">
+                <x-button dusk="carrito" x-bind:disabled="$wire.qty > $wire.quantity" wire:click="addItem" wire:loading.attr="disabled" wire:target="addItem" class="w-full" color="orange">
                     Agregar al carrito de compras
                 </x-button>
             </div>

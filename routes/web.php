@@ -61,4 +61,3 @@ Route::get('prueba', function () {
     }
     return "Completado con éxito";
 });
-Route::post('product/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');

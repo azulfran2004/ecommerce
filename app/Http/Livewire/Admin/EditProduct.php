@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Models\Subcategory;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\Image;
 class EditProduct extends Component
 {
     public $product, $categories, $subcategories, $brands;
@@ -82,5 +82,12 @@ class EditProduct extends Component
         }
         $this->product->delete();
         return redirect()->route('admin.index');
+    }
+
+    public function deleteImage(Image $image)
+    {
+        Storage::disk('public')->delete([$image->url]);
+        $image->delete();
+        $this->product = $this->product->fresh();
     }
 }

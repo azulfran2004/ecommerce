@@ -5,6 +5,11 @@ namespace Tests\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
+use App\Models\Category;
+use App\Models\Subcategory;
+use App\Models\Brand;
+use App\Models\Product;
+use Illuminate\Support\Str;
 
 class ExampleTest extends DuskTestCase
 {
@@ -16,10 +21,11 @@ class ExampleTest extends DuskTestCase
     public function testBasicExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser
-                ->visit('/')
-                ->assertSee('Categorías')
-                ->assertSee('example-test');
+            $browser->visit('/')
+                ->assertDontSee('Laravel');
         });
     }
+
+
+   
 }

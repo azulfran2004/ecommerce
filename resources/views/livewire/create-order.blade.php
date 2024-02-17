@@ -3,12 +3,12 @@
         <div class="bg-white rounded-lg shadow p-6">
             <div class="mb-4">
                 <x-jet-label value="Nombre de contacto" />
-                <x-jet-input type="text" wire:model.defer="contact" placeholder="Introduzca el nombre de la persona que recibirá el pedido" class="w-full" />
+                <x-jet-input dusk="nombre" type="text" wire:model.defer="contact" placeholder="Introduzca el nombre de la persona que recibirá el pedido" class="w-full" />
                 <x-jet-input-error for="contact" />
             </div>
             <div>
                 <x-jet-label value="Teléfono de contacto" />
-                <x-jet-input type="text" wire:model.defer="phone" placeholder="Introduzca el teléfono de contacto" class="w-full" />
+                <x-jet-input dusk="telefono" type="text" wire:model.defer="phone" placeholder="Introduzca el teléfono de contacto" class="w-full" />
                 <x-jet-input-error for="phone" />
             </div>
         </div>
@@ -22,35 +22,35 @@
             <div class="bg-white rounded-lg shadow">
                 <label class="px-6 py-4 flex items-center">
                     <input x-model="envio_type" type="radio" name="envio_type" value="2" class="text-gray-600">
-                    <span class="ml-2 text-gray-700">Envío a domicilio</span>
+                    <span dusk="domicilio" class="ml-2 text-gray-700">Envío a domicilio</span>
                 </label>
                 <div class="px-6 pb-6 grid grid-cols-2 gap-6" :class="{ 'hidden': envio_type != 2 }">
                     <div>
                         <x-jet-label value="Departamento" />
-                        <select class="form-control w-full" wire:model="department_id">
+                        <select dusk="departament" class="form-control w-full" wire:model="department_id">
                             <option value="" disabled selected>Seleccione un departamento</option>
                             @foreach($departments as $department)
-                            <option value="{{ $department->id }}">{{ $department->name }}</option>
+                            <option dusk="departament-id-{{ $department->id }}" value="{{ $department->id }}">{{ $department->name }}</option>
                             @endforeach
                         </select>
                         <x-jet-input-error for="department_id" />
                     </div>
                     <div>
                         <x-jet-label value="Ciudad" />
-                        <select class="form-control w-full" wire:model="city_id">
+                        <select dusk="ciudad" class="form-control w-full" wire:model="city_id">
                             <option value="" disabled selected>Seleccione una ciudad</option>
                             @foreach($cities as $city)
-                            <option value="{{ $city->id }}">{{ $city->name }}</option>
+                            <option dusk="ciudad-id-{{ $city->id }}" value="{{ $city->id }}">{{ $city->name }}</option>
                             @endforeach
                         </select>
                         <x-jet-input-error for="city_id" />
                     </div>
                     <div>
                         <x-jet-label value="Distrito" />
-                        <select class="form-control w-full" wire:model="district_id">
+                        <select dusk="distrito" class="form-control w-full" wire:model="district_id">
                             <option value="" disabled selected>Seleccione un distrito</option>
                             @foreach($districts as $district)
-                            <option value="{{ $district->id }}">{{ $district->name }}</option>
+                            <option dusk="distrito-id-{{ $district->id }}" value="{{ $district->id }}">{{ $district->name }}</option>
                             @endforeach
                         </select>
                         <x-jet-input-error for="district_id" />
@@ -69,8 +69,8 @@
             </div>
         </div>
         <div>
-            <x-jet-button wire:loading.attr="disabled" wire:target="create_order" class="mt-6 mb-4" wire:click="create_order">
-                Continuar con la compra
+            <x-jet-button dusk="continuar" wire:loading.attr="disabled" wire:target="create_order" class="mt-6 mb-4" wire:click="create_order">
+                 continuar con la compra
             </x-jet-button>
             <hr>
             <p class="text-sm text-gray-700 mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, maiores,

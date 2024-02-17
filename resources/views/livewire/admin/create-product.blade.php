@@ -3,20 +3,20 @@
     <div class="grid grid-cols-2 gap-6 mb-4">
         <div>
             <x-jet-label value="Categorías" />
-            <select class="w-full form-control" wire:model="category_id">
+            <select dusk="categorias" class="w-full form-control" wire:model="category_id">
                 <option value="" selected disabled>Seleccione una categoría</option>
                 @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <option dusk="categorias-id-{{ $category->id }}" value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
             <x-jet-input-error for="category_id" />
         </div>
         <div>
             <x-jet-label value="Subcategorías" />
-            <select class="w-full form-control" wire:model="subcategory_id">
+            <select dusk="subcategorias" class="w-full form-control" wire:model="subcategory_id">
                 <option value="" selected disabled>Seleccione una subcategoría</option>
                 @foreach($subcategories as $subcategory)
-                <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                <option dusk="subcategorias-id-{{ $subcategory->id }}" value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
                 @endforeach
             </select>
             <x-jet-input-error for="subcategory_id" />
@@ -27,7 +27,7 @@
     <div class="mb-4">
         <div class="mb-4">
             <x-jet-label value="Nombre" />
-            <x-jet-input type="text" class="w-full" wire:model="name" placeholder="Ingrese el nombre del producto" />
+            <x-jet-input dusk="nombre" type="text" class="w-full" wire:model="name" placeholder="Ingrese el nombre del producto" />
         </div>
         <x-jet-input-error for="name" />
     </div>
@@ -40,7 +40,7 @@
     <div class="mb-4">
         <div wire:ignore>
             <x-jet-label value="Descripción" />
-            <textarea class="w-full form-control" rows="4" wire:model="description" x-data x-init="ClassicEditor.create($refs.miEditor)
+            <textarea dusk="descripcion" class="w-full form-control" rows="4" wire:model="description" x-data x-init="ClassicEditor.create($refs.miEditor)
 .then(function(editor){
 editor.model.document.on('change:data', () => {
 @this.set('description', editor.getData())
@@ -55,17 +55,17 @@ console.error( error );
     <div class="grid grid-cols-2 gap-6 mb-4">
         <div class="mb-4">
             <x-jet-label value="Marca" />
-            <select class="form-control w-full" wire:model="brand_id">
+            <select dusk="marca" class="form-control w-full" wire:model="brand_id">
                 <option value="" selected disabled>Seleccione una marca</option>
                 @foreach ($brands as $brand)
-                <option value="{{$brand->id}}">{{$brand->name}}</option>
+                <option dusk="marca-id-{{ $brand->id }}" value="{{$brand->id}}">{{$brand->name}}</option>
                 @endforeach
             </select>
             <x-jet-input-error for="brand_id" />
         </div>
         <div>
-            <x-jet-label value="Precio" />
-            <x-jet-input wire:model="price" type="number" class="w-full" step=".01" />
+            <x-jet-label  value="Precio" />
+            <x-jet-input dusk="precio" wire:model="price" type="number" class="w-full" step=".01" />
             <x-jet-input-error for="price" />
         </div>
 
@@ -78,7 +78,7 @@ console.error( error );
     </div>
     @endif
     <div class="flex mt-4">
-        <x-jet-button wire:loading.attr="disabled" wire:target="save" wire:click="save" class="ml-auto">
+        <x-jet-button dusk="crear" wire:loading.attr="disabled" wire:target="save" wire:click="save" class="ml-auto">
             Crear producto
         </x-jet-button>
     </div>
