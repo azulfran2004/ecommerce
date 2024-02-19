@@ -13,8 +13,11 @@ use App\Http\Livewire\Admin\ShowDepartment;
 use App\Http\Livewire\Admin\ShowCity;
 use App\Http\Livewire\Admin\UserComponent;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Livewire\Admin\FilterProducts;
 
 Route::get('/', ShowProducts::class)->name('admin.index');
+Route::get('/products', FilterProducts::class)->name('admin.filter');
+
 Route::get('products/{product}/edit', EditProduct::class)->name('admin.products.edit');
 Route::get('products/create', function () {
 })->name('admin.products.create');
