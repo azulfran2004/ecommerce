@@ -6,6 +6,10 @@ namespace App\Providers;
 use Faker\Generator;
 use Illuminate\Support\ServiceProvider;
 use Mmo\Faker\PicsumProvider;
+use App\Sortable;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        
     }
 
     /**

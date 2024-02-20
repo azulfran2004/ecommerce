@@ -12,17 +12,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -62,37 +51,88 @@
                         </div>
 
 
-                        <!-- Agregamos un botón para mostrar/ocultar el formulario -->
                         <button class="px-4 py-2 bg-blue-500 text-white rounded" wire:click="toggleFiltros">Mostrar Filtros</button>
-
-                        <!-- Formulario de filtros (se muestra/oculta con clases de Tailwind) -->
                         <div class="{{ $mostrarFiltros ? 'block' : 'hidden' }}">
-                            <!-- Aquí colocas tus elementos de filtro -->
                             <div class="px-6 py-4">
-                                <!-- Agrega tus campos de filtro aquí -->
-                                <!-- Ejemplo: -->
-                                <label for="filtroCategoria" class="mr-2">Categoría:</label>
-                                <select id="filtroCategoria" class="form-select w-16" wire:model="filtroCategoria">
-                                    <!-- Opciones de categoría -->
+                                <label class="mr-2">Subcategoría:</label>
+                                <select class="form-select w-16" wire:model="subcategoria">
+                                    @foreach($subcategorias as $subcategory)
+                                    <option value="{{$subcategory->id}}" >{{ $subcategory->name}}</option>
+                                    @endforeach
+                                </select>
+                                <label class="mr-2">Marca:</label>
+                                <select class="form-select w-16" wire:model="marca">
+                                    @foreach($brands as $brand)
+                                    <option value="{{$brand->id}}" >{{ $brand->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
-
-
                             <div class="px-6 py-4">
-                                <button class="px-4 py-2 bg-green-500 text-white rounded" wire:click="aplicarFiltros">Aplicar Filtros</button>
-                            </div>
-                        </div>
-                        <div class="px-6 py-4">
                             <x-jet-input dusk="buscador" class="w-full" wire:model="search" type="text" placeholder="Introduzca el nombre del producto a buscar" />
                         </div>
+
+                        </div>
+                        
                         @if($products->count())
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    @for ($i = 0; $i < $numeroColumnas; $i++) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        {{ $headerNames[$i] }}
+                                    <?php $y = 0; ?>
+                                    @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <a wire:click="ordenarpornombre">Nombre</a>
                                         </th>
-                                        @endfor
+                                        @endif
+                                        <?php $y++; ?>
+                                        @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            <a wire:click="ordenarpornombre">Categoría</a>
+                                            </th>
+                                            @endif
+                                            <?php $y++; ?>
+                                            @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                <a wire:click="ordenarpornombre">Estado</a>
+                                                </th>
+                                                @endif
+                                                <?php $y++; ?>
+                                                @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <a wire:click="ordenarporprecio">Precio</a>
+                                                    </th>
+                                                    @endif
+                                                    <?php $y++; ?>
+                                                    @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        <a wire:click="ordenarpornombre">Editar</a>
+                                                        </th>
+                                                        @endif
+                                                        <?php $y++; ?>
+                                                        @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            <a wire:click="ordenarpornombre">Subcategoría</a>
+                                                            </th>
+                                                            @endif
+                                                            <?php $y++; ?>
+                                                            @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                <a wire:click="ordenarpornombre">Marca</a>
+                                                                </th>
+                                                                @endif
+                                                                <?php $y++; ?>
+                                                                @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                    <a wire:click="ordenarporfecha">Fecha de creación</a>
+                                                                    </th>
+                                                                    @endif
+                                                                    <?php $y++; ?>
+                                                                    @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                        <a wire:click="ordenarpornombre">Color</a>
+                                                                        </th>
+                                                                        @endif
+                                                                        <?php $y++; ?>
+                                                                        @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                            <a wire:click="ordenarpornombre">Talla</a>
+                                                                            </th>
+                                                                            @endif
+                                                                            <?php $y++; ?>
+                                                                            @if ($y < $numeroColumnas) <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                                <a wire:click="ordenarporstock">Stock</a>
+                                                                                </th>
+                                                                                @endif
+                                                                                <?php $y++; ?>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -160,13 +200,26 @@
                                                                     @endif
                                                                     <?php $x++ ?>
                                                                     @if ($x < $numeroColumnas) <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                                        {{ $product->color }}
+                                                                        @foreach($product->colors as $color)
+                                                                        {{ $color->name }}
+                                                                        {{ $color->pivot->quantity }}
+
+                                                                        @endforeach
+
                                                                         </td>
 
                                                                         @endif
                                                                         <?php $x++ ?>
                                                                         @if ($x < $numeroColumnas) <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                                            {{ $product->size }}
+                                                                            @foreach($product->sizes as $size)
+                                                                            {{ $size->name }}
+
+                                                                            @foreach($size->colors as $color)
+                                                                            {{ $color->name }}
+                                                                            {{ $color->pivot->quantity }}
+                                                                            @endforeach
+                                                                            <br>
+                                                                            @endforeach
                                                                             </td>
 
                                                                             @endif
